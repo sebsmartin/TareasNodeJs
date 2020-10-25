@@ -35,6 +35,20 @@ app.use(cookieParser());
 app.use(expressValidator());
 app.use(cors());
 
+const authRoutes = require("./routes/auth");
+const fileRoutes = require("./routes/file");
+const relationsRoutes = require("./routes/relations");
+const tweettRoutes = require("./routes/tweet");
+const userRoutes = require("./routes/user");
+
+
+app.use("/api", authRoutes);
+app.use("/api", fileRoutes);
+app.use("/api", relationsRoutes);
+app.use("/api", tweettRoutes);
+app.use("/api", userRoutes);
+
+
 // port
 const port = process.env.PORT || 8000;
 

@@ -3,19 +3,20 @@ const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema;
 
 
-const tweetsSchema = new mongoose.Schema(
+const relationsSchema = new mongoose.Schema(
     {
         userId:{
             type: ObjectId,
             ref: "User",
             required: true
         },
-        message:{
-            type: String,
-            default: ''
+        userRelationId:{
+            type: ObjectId,
+            ref: "Relations",
+            required: true
         }
     },
     { timestamps: true }
 );
 
-module.exports = mongoose.model("Tweets", TweetsSchema);
+module.exports = mongoose.model("Relations", relationsSchema);
